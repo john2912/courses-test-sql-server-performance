@@ -1,7 +1,10 @@
-title            : courses test sql server performance
-description      : Test course to explore performance-related exercises such as indexing and exection plans.
-university       : DataCamp
-difficulty_level : 2
-time_needed      : 1 hour
+title: courses test sql server performance
+description: Test course to explore performance-related exercises such as indexing
+  and exection plans.
+university: DataCamp
+difficulty_level: 2
+time_needed: 1 hour
 programming_language: sql
 from: msft-sql-base-prod:18
+datasets:
+  treatments.csv: Treatments
