@@ -1,3 +1,9 @@
+---
+title       : Test database creation
+description : Tests creating databases, creating tables, creating temp tables, bulk insert
+attachments :
+  slides_link : https://s3.amazonaws.com/assets.datacamp.com/course/teach/slides_example.pdf
+
 
 --- type:NormalExercise lang:sql xp:100 skills:1 key:cb66db1651
 ## Creating a database
@@ -44,9 +50,3 @@ GO
 ```{sql}
 
 ```
----
-title       : Test database creation
-description : Tests creating databases, creating tables, creating temp tables, bulk insert
-attachments :
-  slides_link : https://s3.amazonaws.com/assets.datacamp.com/course/teach/slides_example.pdf
-
