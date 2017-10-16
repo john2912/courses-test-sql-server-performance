@@ -17,7 +17,10 @@ attachments :
 
 *** =pre_exercise_code
 ```{sql}
-
+# replace "sa" with "user_readonly" to restrict access
+connect("", "", full_path="mssql+pyodbc://sa:12345abcdefG@localhost:1433/AdventureWorksLT?driver=FreeTDS")
+# specify which schema to show tables from
+# set_options(view_schema = "SalesLT")
 ```
 
 *** =sample_code
