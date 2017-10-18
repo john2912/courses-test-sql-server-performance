@@ -1,6 +1,5 @@
-title: courses test sql server performance
-description: Test course to explore performance-related exercises such as indexing
-  and exection plans.
+title: Testing SQL server
+description: Test course to explore SQL features, including creating databases, tables, roles, and schemas.
 university: DataCamp
 difficulty_level: 2
 time_needed: 1 hour
