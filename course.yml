@@ -5,6 +5,8 @@ university: DataCamp
 difficulty_level: 2
 time_needed: 1 hour
 programming_language: sql
-from: msft-sql-base-prod:18
+runtime_config: mssql
+from: msft-sql-base-prod:26
+reduced_outline: true
 datasets:
   treatments.csv: Treatments
