@@ -1,5 +1,6 @@
 title: Testing SQL server
-description: Test course to explore SQL features, including creating databases, tables, roles, and schemas.
+description: Test course to explore SQL features, including creating databases, tables,
+  roles, and schemas.
 university: DataCamp
 difficulty_level: 2
 time_needed: 1 hour
@@ -8,4 +9,5 @@ runtime_config: mssql
 from: msft-sql-base-prod:26
 reduced_outline: true
 datasets:
+  create-co2-database.sql: Create-co2-database
   treatments.csv: Treatments
