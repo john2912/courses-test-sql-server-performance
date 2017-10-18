@@ -90,6 +90,10 @@ connect("", "", full_path="mssql+pyodbc://sa:12345abcdefG@localhost:1433/Adventu
 
 *** =sample_code
 ```{sql}
+/* Adapted from 
+https://docs.microsoft.com/en-us/sql/t-sql/statements/create-table-transact-sql
+https://technet.microsoft.com/en-us/library/dd776381(v=sql.105).aspx#BasicSyntax
+*/
 USE master;
 CREATE DATABASE mydb;
 CREATE TABLE dbo.mytable(x INT);
@@ -100,6 +104,10 @@ SELECT * FROM dbo.mytable;
 
 *** =solution
 ```{sql}
+/* Adapted from 
+https://docs.microsoft.com/en-us/sql/t-sql/statements/create-table-transact-sql
+https://technet.microsoft.com/en-us/library/dd776381(v=sql.105).aspx#BasicSyntax
+*/
 USE master;
 CREATE DATABASE mydb;
 CREATE TABLE dbo.mytable(x INT);
@@ -145,6 +153,51 @@ CREATE TABLE #mytable(x INT);
 INSERT INTO #mytable
   VALUES (99);
 SELECT * FROM #mytable;
+```
+
+*** =sct
+```{sql}
+
+```
+
+
+--- type:NormalExercise lang:sql xp:100 skills:1 key:2d99909834
+## Bulk insert from CSV file
+
+Bulk insert data from a CSV file.
+
+*** =instructions
+
+- Run the code to import data from a CSV file into a temp table.
+
+*** =hint
+
+*** =pre_exercise_code
+```{sql}
+'___BLOCK_SOLUTION_EXEC___'
+connect("", "", full_path="mssql+pyodbc://sa:12345abcdefG@localhost:1433/AdventureWorksLT?driver=FreeTDS")
+```
+
+*** =sample_code
+```{sql}
+BULK INSERT #locations
+  FROM 'https://s3.amazonaws.com/assets.datacamp.com/production/course_5401/datasets/locations.csv'
+  WITH(
+    FIELDTERMINATOR =',',  
+    ROWTERMINATOR = '\n'
+  );
+SELECT * FROM #locations
+```
+
+*** =solution
+```{sql}
+BULK INSERT #locations
+  FROM 'https://s3.amazonaws.com/assets.datacamp.com/production/course_5401/datasets/locations.csv'
+  WITH(
+    FIELDTERMINATOR =',',  
+    ROWTERMINATOR = '\n'
+  );
+SELECT * FROM #locations
 ```
 
 *** =sct
