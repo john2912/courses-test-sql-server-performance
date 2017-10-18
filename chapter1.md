@@ -10,6 +10,10 @@ attachments :
 
 Can we create a database?
 
+**This code works if you run it in two stages: creating a database first, then querying. It doesn't work if you run it in one go.**
+
+Presumably the problem is that the two statements need to be separated by `GO` commands. See [feature request](https://trello.com/c/PHJFOQ0N/94-support-t-sql-go-keyword).
+
 *** =instructions
 
 - Run the code to create a database named `mydb` using `CREATE DATABASE`.
@@ -65,7 +69,7 @@ SELECT name, size, size * 1.0 / 128 AS [Size in MBs]
 --- type:NormalExercise lang:sql xp:100 skills:1 key:f402b5ae47
 ## Adding a table to a database
 
-Can we add a table to a database?
+Can we add a table to a database, and insert some data?
 
 **The CREATE TABLE step appears to be failing.** Should it have a different schema?
 
@@ -73,7 +77,7 @@ Can we add a table to a database?
 
 The database `mydb` has been created for you.
 
-- Run the code to add a table named `mytable` to `mydb`.
+- Run the code to add a table named `mytable` to `mydb` and insert a row of data.
 
 *** =hint
 
@@ -102,6 +106,45 @@ CREATE TABLE dbo.mytable(x INT);
 INSERT INTO dbo.mytable
   VALUES (99);
 SELECT * FROM dbo.mytable;
+```
+
+*** =sct
+```{sql}
+
+```
+
+--- type:NormalExercise lang:sql xp:100 skills:1 key:5c4a8be91c
+## Creating a temp table
+
+Same as last exercise, but with a temp table.
+
+**This is currently giving the error `Invalid object name '#mytable'`.**
+
+*** =instructions
+- Run the code to create a temp table named `#mytable` and insert a row of data.
+
+*** =hint
+
+*** =pre_exercise_code
+```{sql}
+'___BLOCK_SOLUTION_EXEC___'
+connect("", "", full_path="mssql+pyodbc://sa:12345abcdefG@localhost:1433/AdventureWorksLT?driver=FreeTDS")
+```
+
+*** =sample_code
+```{sql}
+CREATE TABLE #mytable(x INT);
+INSERT INTO #mytable
+  VALUES (99);
+SELECT * FROM #mytable;
+```
+
+*** =solution
+```{sql}
+CREATE TABLE #mytable(x INT);
+INSERT INTO #mytable
+  VALUES (99);
+SELECT * FROM #mytable;
 ```
 
 *** =sct
