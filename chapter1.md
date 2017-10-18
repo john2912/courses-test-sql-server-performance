@@ -166,6 +166,8 @@ SELECT * FROM #mytable;
 
 Bulk insert data from a CSV file.
 
+**Currently not working, though possibly due to temp table creation problems.**
+
 *** =instructions
 
 - Run the code to import data from a CSV file into a temp table.
@@ -180,6 +182,9 @@ connect("", "", full_path="mssql+pyodbc://sa:12345abcdefG@localhost:1433/Adventu
 
 *** =sample_code
 ```{sql}
+/* Adapted from
+https://docs.microsoft.com/en-us/sql/t-sql/statements/bulk-insert-transact-sql
+*/
 BULK INSERT #locations
   FROM 'https://s3.amazonaws.com/assets.datacamp.com/production/course_5401/datasets/locations.csv'
   WITH(
@@ -191,6 +196,9 @@ SELECT * FROM #locations
 
 *** =solution
 ```{sql}
+/* Adapted from
+https://docs.microsoft.com/en-us/sql/t-sql/statements/bulk-insert-transact-sql
+*/
 BULK INSERT #locations
   FROM 'https://s3.amazonaws.com/assets.datacamp.com/production/course_5401/datasets/locations.csv'
   WITH(
@@ -198,6 +206,106 @@ BULK INSERT #locations
     ROWTERMINATOR = '\n'
   );
 SELECT * FROM #locations
+```
+
+
+*** =sct
+```{sql}
+
+```
+
+--- type:NormalExercise lang:sql xp:100 skills:1 key:26a3153318
+## Create role
+
+Can we create database roles?
+
+**The CREATE ROLE line seems to work OK, but then I can't find the `instructor` role when querying.**
+
+*** =instructions
+
+- Run the code to create an `instructor` role, and query all roles.
+
+*** =hint
+
+*** =pre_exercise_code
+```{sql}
+'___BLOCK_SOLUTION_EXEC___'
+connect("", "", full_path="mssql+pyodbc://sa:12345abcdefG@localhost:1433/AdventureWorksLT?driver=FreeTDS")
+```
+
+*** =sample_code
+```{sql}
+/* Adapted from
+https://docs.microsoft.com/en-us/sql/t-sql/statements/create-role-transact-sql
+*/
+CREATE ROLE instructor AUTHORIZATION db_datareader;
+
+SELECT *
+  FROM sysusers
+  WHERE issqlrole = 1;
+```
+
+*** =solution
+```{sql}
+/* Adapted from
+https://docs.microsoft.com/en-us/sql/t-sql/statements/create-role-transact-sql
+*/
+CREATE ROLE instructor AUTHORIZATION db_datareader;
+
+SELECT *
+  FROM sysusers
+  WHERE issqlrole = 1;
+```
+
+*** =sct
+```{sql}
+
+```
+
+
+--- type:NormalExercise lang:sql xp:100 skills:1 key:b28aa0a032
+## Create Schema
+
+Can we create a schema, and a table within it?
+
+**Session currently aborting.**
+
+*** =instructions
+
+- Run the code to create an `Sales` schema, and create a table within it.
+
+*** =hint
+
+*** =pre_exercise_code
+```{sql}
+'___BLOCK_SOLUTION_EXEC___'
+connect("", "", full_path="mssql+pyodbc://sa:12345abcdefG@localhost:1433/AdventureWorksLT?driver=FreeTDS")
+```
+
+*** =sample_code
+```{sql}
+/* From example B in
+https://docs.microsoft.com/en-us/sql/t-sql/statements/create-schema-transact-sql
+*/
+CREATE SCHEMA Sales;  
+
+CREATE TABLE Sales.Region   
+(Region_id int NOT NULL,  
+Region_Name char(5) NOT NULL)  
+WITH (DISTRIBUTION = REPLICATE);  
+```
+
+*** =solution
+```{sql}
+/* From example B in
+https://docs.microsoft.com/en-us/sql/t-sql/statements/create-schema-transact-sql
+*/
+CREATE SCHEMA Sales;  
+
+CREATE TABLE Sales.Region   
+(Region_id int NOT NULL,  
+Region_Name char(5) NOT NULL)  
+WITH (DISTRIBUTION = REPLICATE);  
 ```
 
 *** =sct
