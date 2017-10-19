@@ -272,7 +272,7 @@ Can we create a schema, and a table within it?
 
 *** =instructions
 
-- Run the code to create an `Sales` schema, and create a table within it.
+- Run the code to create a `Sales` schema, and create a table within it.
 
 *** =hint
 
