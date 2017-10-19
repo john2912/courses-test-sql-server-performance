@@ -266,13 +266,13 @@ SELECT *
 --- type:NormalExercise lang:sql xp:100 skills:1 key:b28aa0a032
 ## Create Schema
 
-Can we create a schema, and a table within it?
+Can we create a schema?
 
-**`CREATE SCHEMA` seems to run OK, but then can't find the schema.**
+**This only works when run in 2 parts. (Hence 2nd line commented.) `CREATE SCHEMA` seems to run OK, but then can't find the schema.**
 
 *** =instructions
 
-- Run the code to create a `Sales` schema, and query to check it exists.
+- Run the code to create a `MySchema` schema, and query to check it exists.
 
 *** =hint
 
@@ -289,7 +289,7 @@ https://docs.microsoft.com/en-us/sql/t-sql/statements/create-schema-transact-sql
 */
 CREATE SCHEMA MySchema;  
 
-SELECT * FROM sys.schemas WHERE name = 'MySchema';
+-- SELECT * FROM sys.schemas WHERE name = 'MySchema';
 ```
 
 *** =solution
@@ -299,7 +299,7 @@ https://docs.microsoft.com/en-us/sql/t-sql/statements/create-schema-transact-sql
 */
 CREATE SCHEMA MySchema;  
 
-SELECT * FROM sys.schemas WHERE name = 'MySchema';
+-- SELECT * FROM sys.schemas WHERE name = 'MySchema';
 ```
 
 *** =sct
