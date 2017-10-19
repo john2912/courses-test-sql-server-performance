@@ -1,5 +1,5 @@
 ---
-title       : Test database creation
+title       : Test database, table, role, and schema creation
 description : Tests creating databases, creating tables, creating temp tables, bulk insert
 attachments :
   slides_link : https://s3.amazonaws.com/assets.datacamp.com/course/teach/slides_example.pdf
