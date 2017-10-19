@@ -219,7 +219,7 @@ SELECT * FROM #locations
 
 Can we create database roles?
 
-**The CREATE ROLE line seems to work OK, but then I can't find the `instructor` role when querying.**
+**It works!**
 
 *** =instructions
 
@@ -242,7 +242,7 @@ CREATE ROLE instructor AUTHORIZATION db_datareader;
 
 SELECT *
   FROM sysusers
-  WHERE issqlrole = 1;
+  WHERE issqlrole = 1 AND name = 'instructor';
 ```
 
 *** =solution
@@ -254,7 +254,7 @@ CREATE ROLE instructor AUTHORIZATION db_datareader;
 
 SELECT *
   FROM sysusers
-  WHERE issqlrole = 1;
+  WHERE issqlrole = 1 AND name = 'instructor';
 ```
 
 *** =sct
@@ -268,11 +268,11 @@ SELECT *
 
 Can we create a schema, and a table within it?
 
-**Session currently aborting.**
+**`CREATE SCHEMA` seems to run OK, but then can't find the schema.**
 
 *** =instructions
 
-- Run the code to create a `Sales` schema, and create a table within it.
+- Run the code to create a `Sales` schema, and query to check it exists.
 
 *** =hint
 
@@ -287,12 +287,9 @@ connect("", "", full_path="mssql+pyodbc://sa:12345abcdefG@localhost:1433/Adventu
 /* From example B in
 https://docs.microsoft.com/en-us/sql/t-sql/statements/create-schema-transact-sql
 */
-CREATE SCHEMA Sales;  
+CREATE SCHEMA MySchema;  
 
-CREATE TABLE Sales.Region   
-(Region_id int NOT NULL,  
-Region_Name char(5) NOT NULL)  
-WITH (DISTRIBUTION = REPLICATE);  
+SELECT * FROM sys.schemas WHERE name = 'MySchema';
 ```
 
 *** =solution
@@ -300,12 +297,9 @@ WITH (DISTRIBUTION = REPLICATE);
 /* From example B in
 https://docs.microsoft.com/en-us/sql/t-sql/statements/create-schema-transact-sql
 */
-CREATE SCHEMA Sales;  
+CREATE SCHEMA MySchema;  
 
-CREATE TABLE Sales.Region   
-(Region_id int NOT NULL,  
-Region_Name char(5) NOT NULL)  
-WITH (DISTRIBUTION = REPLICATE);  
+SELECT * FROM sys.schemas WHERE name = 'MySchema';
 ```
 
 *** =sct
