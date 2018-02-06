@@ -5,9 +5,9 @@ pip3 install git+git://github.com/datacamp/sqlwhat-ext --no-deps
 # https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-setup-tools
 
 # Add /opt/mssql-tools/bin/ to your PATH environment variable in a bash shell.
-echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> /home/repl/.bashrc
-echo 'export TERM=xterm' >> /home/repl/.bashrc
-source /home/repl/.bashrc
+echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> /home/repl/.bash_profile
+echo 'export TERM=xterm' >> /home/repl/.bash_profile
+source /home/repl/.bash_profile
 
 # Import the public repository GPG keys.
 curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
