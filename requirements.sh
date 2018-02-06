@@ -15,6 +15,7 @@ apt-get update && apt-get --yes install mssql-tools unixodbc-dev
 
 # Add /opt/mssql-tools/bin/ to your PATH environment variable in a bash shell.
 echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bash_profile
+echo 'export TERM=xterm' >> ~/.bash_profile
 
 # Check it works
 sqlcmd -e -?
