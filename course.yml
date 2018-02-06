@@ -6,7 +6,7 @@ difficulty_level: 2
 time_needed: 1 hour
 programming_language: sql
 runtime_config: mssql
-from: msft-sql-base-prod:26
+from: msft-sql-base-prod:27
 reduced_outline: true
 datasets:
   create-co2-database.sql: Create-co2-database
