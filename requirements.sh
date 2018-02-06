@@ -5,6 +5,9 @@ pip3 install git+git://github.com/datacamp/sqlwhat-ext --no-deps
 # https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-setup-tools
 
 # Add /opt/mssql-tools/bin/ to your PATH environment variable in a bash shell.
+export PATH="$PATH:/opt/mssql-tools/bin"
+export TERM=xterm
+
 echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> /home/repl/.bash_profile
 echo 'export TERM=xterm' >> /home/repl/.bash_profile
 source /home/repl/.bash_profile
