@@ -7,7 +7,4 @@ pip3 install git+git://github.com/datacamp/sqlwhat-ext --no-deps
 ./start_server.sh
 
 # Simple task: return available tables
-isql Default sa $SA_PASSWORD -v 
-SELECT * FROM INFORMATION_SCHEMA.TABLES
-GO
-quit
+isql Default sa $SA_PASSWORD -v < test.sql
