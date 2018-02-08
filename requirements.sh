@@ -3,5 +3,5 @@ pip3 install git+git://github.com/datacamp/sqlwhat-ext --no-deps
 
 # Follow ideas from https://github.com/datacamp/docker-msft-sql-base/blob/master/requirements.sh
 
-# Simplest task: print isql version
-isql --version
+# Simple task: return available tables
+isql Default sa $SA_PASSWORD -v "SELECT * FROM INFORMATION_SCHEMA.TABLES"
