@@ -12,4 +12,3 @@ until nc -vz localhost 1433; do
     echo "no connection"
     sleep 1
 done
-sudo -u repl -E env PYTHONPATH=/usr/local/lib/python3.5/dist-packages:/var/lib/python/site-packages python3 -i
